@@ -9,11 +9,11 @@ function M.highlight_all(colors, opts)
   end
   local ntree = opts.nvim_tree or { contrast = false }
   if ntree.contrast == true then
-    hi('NvimTreeNormal', { guibg = colors.contrast }, false)
-    hi('NvimTreeNormalNC', { guibg = colors.contrast }, false)
-    hi('NvimTreeEndOfBuffer', { guibg = colors.contrast, guifg = colors.contrast }, false)
-    hi('NvimTreeEndOfBufferNC', { guibg = colors.contrast, guifg = colors.contrast }, false)
-    hi('NvimTreeVertSplit', { guifg = colors.background, guibg = colors.background }, false)
+    hi(0, 'NvimTreeNormal', { guibg = colors.contrast } )
+    hi(0, 'NvimTreeNormalNC', { guibg = colors.contrast } )
+    hi(0, 'NvimTreeEndOfBuffer', { guibg = colors.contrast, guifg = colors.contrast } )
+    hi(0, 'NvimTreeEndOfBufferNC', { guibg = colors.contrast, guifg = colors.contrast } )
+    hi(0, 'NvimTreeVertSplit', { guifg = colors.background, guibg = colors.background } )
   end
   if opts.italics.code == true then
     local tomkitalic = {
@@ -22,7 +22,7 @@ function M.highlight_all(colors, opts)
       'Repeat', 'TSRepeat',
     }
     for _, item in ipairs(tomkitalic) do
-      hi(item, { cterm = 'italic', gui = 'italic' }, false)
+      hi(0, item, { cterm = 'italic', gui = 'italic' } )
     end
   end
   if opts.italics.comments == true then
@@ -30,7 +30,7 @@ function M.highlight_all(colors, opts)
        'TSComment', 'Comment'
      }
      for _, item in ipairs(tomkitalic) do
-       hi(item, { cterm = 'italic', gui = 'italic' }, false)
+       hi(0, item, { cterm = 'italic', gui = 'italic' } )
      end
   end
 end
